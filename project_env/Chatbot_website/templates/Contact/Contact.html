@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="icon" href="imgs/icons8-c-programming-96.png">
+  <!-- Css File -->
+  <link rel="stylesheet" href="{% static 'Design_page/Contact/contact.css'%}">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+</head>
+<body>
+  <div id="must-head">
+    {% include 'Parts/Navbar.html' %}
+  <!--  contact section -->
+     <section id="contact">
+          <div class="container1">
+              <div class="head">
+                  <h1>Contact us</h1>
+                  <p>Let's work together!</p>
+              </div>
+              <div class="box-form">
+                <form action="">
+                  <h2>Get in touch</h2>
+                  <div class="form-floating">
+                      <input type="text" class="form-control-1" placeholder="Name">
+                      <input type="text" class="form-control-1" placeholder="Email">
+                  </div>
+                  <div class="form-floating">
+                      <input type="text" class="form-control-1"  placeholder="Phone Number">
+                  </div>
+                  <div class="form-floating">
+                      <textarea class="form-control-1 " rows="4" placeholder="Message" id="floatingTextarea2" style="height: 20vh;"></textarea>
+                  </div>
+                    <button type="submit" class="submit more">Send Message</button>
+                </form>
+
+                <div class="info">
+                  <div class="info-1">
+                    <h2>Contact us</h2>
+                    <div class="info-11 d-flex">
+                      <div class="info-111 d-flex align-items-center">
+                        <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-location-dot"></i></div>
+                        <p><span>Address :</span> Constantine 2 Faculte NTIC</p>
+                      </div>
+                      <div class="info-111 d-flex align-items-center">
+                        <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-phone"></i></div>
+                        <p><span>Phone : </span> + 1235 2355 98</p>
+                      </div>
+                      <div class="info-111 d-flex align-items-center">
+                        <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-paper-plane"></i></div>
+                        <p><span>Email :</span> info@yoursite.com</p>
+                      </div>
+                      <div class="info-111 d-flex align-items-center">
+                        <div class="d-flex justify-content-center align-items-center"><i class="fa-solid fa-earth-americas"></i></div>
+                        <p><span>Website</span> yoursite.com</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+          </div>
+
+   </section> 
+  </div>
+  
+  <script src="{% static 'js/all.js'%}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

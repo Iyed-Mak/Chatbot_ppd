@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emails Chat</title>
+
+  <!-- Css Files -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'Design_page/Emails/emails.css'%}">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+<body>
+  {% include 'Parts/Navbar.html' %}
+
+  <section id="emails">
+    <div class="container d-flex">
+        <div class="messages">
+           <h5 class="mb-4" style="font-weight: bold;">All Message</h5>
+           <div class="px-2">
+            <div class="position-relative" style="max-width: 85%;">
+              <input type="text" placeholder="Search Message" class="form-control">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="card my-3 p-1" style="max-width: 85%;">
+                <div class="">
+                  <div class="card-body">
+                    <div class="d-flex gap-3">
+                      <img src="img/3f93a8d64e7733bebfcf257992b470dd.jpeg" class="img-fluid" alt="...">
+                      <div style="width: 80%;">
+                          <div class="d-flex justify-content-between">
+                            <p class="card-text text-muted mb-1" style="font-size: .9rem;
+                            opacity: 1;">Make Creative Mints</p>
+                            <p class="card-text text-muted mb-1">3 Days Ago</p>
+                          </div>
+                          <h6 class="card-text">UI/UX Designer Needed</h6>
+                          <p class="card-text text-muted mt-3 pe-3">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="chat">
+
+        </div>
+    </div>
+  </section>
+
+  <script src="{% static 'js/all.js'%}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

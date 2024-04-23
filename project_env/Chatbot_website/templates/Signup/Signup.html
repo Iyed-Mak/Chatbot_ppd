@@ -1,0 +1,87 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'Design_page/Signup/Signup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+</head>
+
+<body>
+
+    <div class="login">
+        <div class="container">
+            <div class="col-left">
+                <div class="login-text sign ">
+                    <h2>Welcome!</h2>
+                    <p>Create your account.<br>For Free!</p> 
+                    <button  class="btn">Sign Up</button>
+                </div>
+                <div class="login-text log d-none">
+                    <h2>Welcome!</h2>
+                    <p>Login your account. <br>From Here!</p> 
+                    <button class="btn">Login</button>
+                </div>
+            </div>
+            <div class="col-right">
+                <div class="reg login-form d-flex flex-column ">
+                    <h2>Login</h2>
+                    <form action="">
+                        <p> 
+                          <label>Username/Email address</label>
+                          <input type="text" placeholder="Username or Email" required>
+                        </p>
+                        <p>
+                          <label>Password</label> 
+                          <input type="password" placeholder="Password" required> 
+                        </p>
+                        <p> 
+                          <input type="submit" value="login"> 
+                        </p>
+                        <p>
+                           <a href="">Forgot password?</a> 
+                        </p>
+                    </form>
+                </div>
+                <div class="reg sign-form d-flex flex-column d-none">
+                  <h2>Sign Up</h2>
+                  <form action="" class="d-flex flex-column gap-2">
+                      <p> 
+                        <label>Username</label>
+                        <input type="text" placeholder="Username" required>
+                      </p>
+                      <p> 
+                        <label>Email</label>
+                        <input type="email" placeholder="Email" required>
+                      </p>
+                      <p>
+                        <label>Password</label> 
+                        <input type="password" placeholder="Password" required> 
+                      </p>
+                      <p>
+                        <label>Confirm Password</label> 
+                        <input type="password" placeholder="Confirm Password" required> 
+                      </p>
+                      <p> 
+                        <input type="submit" value="Create Count"> 
+                      </p>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/all.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'Design_page/Signup/Signup.js' %}"></script>
+</body>
+
+</html>
+
