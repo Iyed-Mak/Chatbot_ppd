@@ -11,46 +11,74 @@
   <link rel="stylesheet" href="{% static 'Design_page/Emails/emails.css'%}">
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+
 </head>
 <body>
-  {% include 'Parts/Navbar.html' %}
+  {% include 'Parts/Navbar.html'%}
 
-  <section id="emails">
-    <div class="container d-flex">
-        <div class="messages">
-           <h5 class="mb-4" style="font-weight: bold;">All Message</h5>
-           <div class="px-2">
-            <div class="position-relative" style="max-width: 85%;">
-              <input type="text" placeholder="Search Message" class="form-control">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="card my-3 p-1" style="max-width: 85%;">
-                <div class="">
-                  <div class="card-body">
-                    <div class="d-flex gap-3">
-                      <img src="img/3f93a8d64e7733bebfcf257992b470dd.jpeg" class="img-fluid" alt="...">
-                      <div style="width: 80%;">
-                          <div class="d-flex justify-content-between">
-                            <p class="card-text text-muted mb-1" style="font-size: .9rem;
-                            opacity: 1;">Make Creative Mints</p>
-                            <p class="card-text text-muted mb-1">3 Days Ago</p>
-                          </div>
-                          <h6 class="card-text">UI/UX Designer Needed</h6>
-                          <p class="card-text text-muted mt-3 pe-3">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                      </div>
+  <div class="container py-5 px-4">
+    <div class="row rounded-lg overflow-hidden shadow">
+      <!-- Users box-->
+      <div class="col-5 px-0">
+        <div class="bg-white">
+  
+          <div class="bg-gray px-4 py-2 bg-light">
+            <p class="h5 mb-0 py-1">Recent</p>
+          </div>
+  
+          <div class="messages-box">
+            <div class="list-group rounded-0">
+              <button class="list-group-item list-group-item-action active text-white rounded-0">
+                <div class="media d-flex gap-2 align-items-start">
+                  <img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg" alt="user" width="50" class="rounded-circle">
+                  <div class="media-body ml-4">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <h6 class="mb-0">Jason Doe</h6><small class="small font-weight-bold">25 Dec</small>
                     </div>
+                    <p class="font-italic mb-0 text-small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
                   </div>
                 </div>
+              </button>
             </div>
           </div>
         </div>
-
-
-        <div class="chat">
-
+      </div>
+      <!-- Chat Box-->
+      <div class="col-7 px-0">
+        <div class="px-4 py-5 chat-box bg-white d-flex flex-column">
+          <!-- Sender Message-->
+          <div class="media w-50 mb-3 d-flex align-items-start"><img src="https://bootstrapious.com/i/snippets/sn-chat/avatar.svg" alt="user" width="50" class="rounded-circle">
+            <div class="media-body ml-3">
+              <div class="bg-light rounded py-2 px-3 mb-2">
+                <p class="text-small mb-0 text-muted">Test which is a new approach all solutions</p>
+              </div>
+              <p class="small text-muted">12:00 PM | Aug 13</p>
+            </div>
+          </div>
+  
+          <!-- Reciever Message-->
+          <div class="media w-50 ml-auto mb-3 align-self-end">
+            <div class="media-body">
+              <div class="bg-primary rounded py-2 px-3 mb-2">
+                <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
+              </div>
+              <p class="small text-muted">12:00 PM | Aug 13</p>
+            </div>
+          </div>
+  
         </div>
+  
+        <!-- Typing area -->
+        <form action="#" class="bg-light">
+          <div class="input-group">
+            <input type="text" placeholder="Type a message"  class="form-control rounded-0 border-0 py-4 bg-light">
+            <button type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+          </div>
+        </form>
+  
+      </div>
     </div>
-  </section>
+  </div>
 
   <script src="{% static 'js/all.js'%}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>

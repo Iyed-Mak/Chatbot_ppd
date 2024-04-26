@@ -1,0 +1,23 @@
+body{
+  background: var(--main-color) !important;
+}
+
+/* Start Task */
+.align-middle{
+  max-width: 38vw;
+  width: fit-content;
+}
+.mask-custom {
+  background: rgba(24, 24, 16, 0.2) !important;
+  border-radius: 2em !important;
+  backdrop-filter: blur(25px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.05) !important;
+  background-clip: padding-box !important;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03) !important;
+}
+a{
+  cursor: pointer;
+}
+
+
+/* end Task */

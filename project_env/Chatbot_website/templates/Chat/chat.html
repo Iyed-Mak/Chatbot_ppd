@@ -1,0 +1,72 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="{% static 'Design_page/Chat/chat.css'%}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+  
+  {% include 'Parts/Navbar.html'%}
+  
+ <section id="chat">
+   <div class="container px-4" >
+     <div class="chat">
+       {% for i in "123" %}
+          <div class="bubbleWrapper">
+            <div class="inlineContainer">
+              <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
+              <div class="otherBubble other">
+                Hi, ask some thing
+              </div>
+            </div><span class="other">08:41</span>
+          </div>
+        {% endfor %}
+      <!--   <div class="bubbleWrapper">
+          <div class="inlineContainer own">
+            <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+            <div class="ownBubble own">
+              yes,please tell me about algeria
+            </div>
+          </div><span class="own">08:55</span>
+        </div>
+        <div class="bubbleWrapper">
+          <div class="inlineContainer">
+          <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
+          <div class="otherBubble other">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusantium laudantium enim cupiditate rerum excepturi exercitationem facilis ipsam neque esse facere ad error ut eos laborum minus beatae molestiae dicta.
+            </div>
+          </div><span class="other">10:13</span>
+          </div>
+      
+        <div class="bubbleWrapper">
+          <div class="inlineContainer own">
+            <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+            <div class="ownBubble own">
+              Thank you good Bye
+            </div>
+          </div><span class="own">11:07</span>
+        </div> -->
+      
+        
+     </div>
+     <div class="write">
+      <input type="text" class="form-control" placeholder="Write a message..." />
+      <i class="fa-regular fa-paper-plane"></i>
+     </div>
+ 
+   </div>
+ </section>
+
+  <script src="{% static 'js/all.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'Design_page/Chat/chat.js' %}"></script>
+
+</body>
+</html>

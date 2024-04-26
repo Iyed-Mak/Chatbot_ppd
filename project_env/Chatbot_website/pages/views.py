@@ -11,3 +11,10 @@ def emails(request):
 
 def sign(request):
     return render(request,'Signup/Signup.html')
+
+def chat(request):
+    return render(request,'Chat/chat.html')
+
+def tasks(request):
+    return render(request,'Task/task.html')
+
