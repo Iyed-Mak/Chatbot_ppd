@@ -1,3 +1,4 @@
+
 let done = document.querySelectorAll(".fw-normal .done");
 let remove = document.querySelectorAll(".fw-normal .remove");
 let rows = document.querySelectorAll(".fw-normal");
@@ -16,15 +17,13 @@ for (let index = 0; index < done.length; index++) {
 }
 
 
-function removeTask(e,i) {
-
-  
-  if(e.classList[0]=='done'){
+function removeTask(btn,rowIndex) {
+  if(btn.classList[0]=='done'){
     alertDone.classList.remove('d-none')
   }else{
     alertDelete.classList.remove('d-none')
   }
-  rows[i].classList.add('d-none');
+  rows[rowIndex].classList.add('d-none');
   rl--;
   if (rl === 0) {
     tableTask.classList.add('d-none');
@@ -34,9 +33,10 @@ function removeTask(e,i) {
       alertNoTask.classList.remove('d-none')
     }, 1500);
   }  
-  
   setTimeout(() => {
     alertDone.classList.add('d-none');
     alertDelete.classList.add('d-none');
   }, 2000);
 }
+
+

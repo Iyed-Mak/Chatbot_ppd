@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="{% static 'css/all.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
 <body>
   
@@ -18,7 +21,6 @@
  <section id="chat">
    <div class="container px-4" >
      <div class="chat">
-       {% for i in "123" %}
           <div class="bubbleWrapper">
             <div class="inlineContainer">
               <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
@@ -27,16 +29,23 @@
               </div>
             </div><span class="other">08:41</span>
           </div>
-        {% endfor %}
-      <!--   <div class="bubbleWrapper">
+         <div class="bubbleWrapper">
           <div class="inlineContainer own">
-            <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+            <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
             <div class="ownBubble own">
               yes,please tell me about algeria
             </div>
           </div><span class="own">08:55</span>
         </div>
-        <div class="bubbleWrapper">
+          <div class="bubbleWrapper">
+            <div class="inlineContainer">
+              <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
+              <div class="otherBubble other">
+                {{response}}
+              </div>
+            </div><span class="other">08:41</span>
+          </div>
+      <!--  <div class="bubbleWrapper">
           <div class="inlineContainer">
           <img class="inlineIcon" src="{% static 'Design_page/Chat/img/robot-modern.png'%}">
           <div class="otherBubble other">
@@ -64,6 +73,30 @@
    </div>
  </section>
 
+ <script>
+  $(document).ready(function() {
+    $('svg').click(function() {
+      input = $('.write input')
+      input = input[0].value
+      $.ajax({
+        url: '/chatReponse/', // URL to the Django view
+        type: 'POST',
+        data: {
+          'input': input,
+          'csrfmiddlewaretoken': '{{ csrf_token }}' // Include the CSRF token for security
+        },
+        dataType: 'json',
+        success: function(data) {
+            console.log(data.message); // Handle the success response
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+          }
+      });
+    });
+
+  });
+</script>
   <script src="{% static 'js/all.js' %}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'Design_page/Chat/chat.js' %}"></script>

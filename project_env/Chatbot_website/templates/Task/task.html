@@ -11,13 +11,16 @@
   <link rel="stylesheet" href="{% static 'Design_page/Task/task.css'%}">
   <link rel="stylesheet" href="{% static 'css/style.css'%}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
 <body>
    {% include 'Parts/Navbar.html'%}
 
   <!-- Task section -->
   <section class="vh-100 gradient-custom-2">
-    <div class="container py-5 h-100">
+    <div class="container py-5 h-100" onclick="">
       <div class="row d-flex justify-content-center h-100">
         <div class="col-md-12 col-xl-10">
           <div class="card mask-custom">
@@ -31,9 +34,10 @@
               <table class="table text-white mb-0">
                 <thead>
                   <tr>
-                    <th scope="col">Email Senders</th>
+                    <th scope="col">Email Sender</th>
                     <th scope="col">Task</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Task Date</th>
+                    <th scope="col">Email Date</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -68,9 +72,37 @@
                       Task Delete
                     </div>
                   </div>
-
+                   
                   <!-- Tasks -->
-                  <tr class="fw-normal">
+                    {% for row in rows %}
+                        <tr class="fw-normal">
+                          <th>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp" alt="/" style="width: 45px; height: auto;">
+                            <span class="ms-2">{{row.1 }}</span>
+                          </th>
+                          <td class="align-middle">
+                            <span>{{ row.2 }}</span>
+                          </td>
+                          <td class="align-middle">
+                            <h6 class="mb-0">{{row.3}}</h6>
+                          </td>
+                          <td class="align-middle">
+                            <h6 class="mb-0">{{row.4}}</h6>
+                          </td>
+                          <td class="align-middle">
+                            <div class="d-flex gap-3">
+                              <a data-mdb-tooltip-init title="Done" class="done" data="{{row.0}}">
+                                <i class="fas fa-check fa-lg text-success"></i>
+                              </a>
+                              <a data-mdb-tooltip-init title="Remove" class="remove" data="{{row.0}}" >
+                                <i class="fas fa-trash-alt fa-lg text-danger"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                
+                <!--   <tr class="fw-normal">
                     <th>
                       <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                         alt="avatar 1" style="width: 45px; height: auto;">
@@ -92,31 +124,7 @@
                         </a>
                       </div>
                     </td>
-                  </tr>
-
-                  <tr class="fw-normal">
-                    <th>
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
-                        alt="avatar 1" style="width: 45px; height: auto;">
-                      <span class="ms-2">Alice Mayer</span>
-                    </th>
-                    <td class="align-middle">
-                      <span>Call Sam For payments</span>
-                    </td>
-                    <td class="align-middle">
-                      <h6 class="mb-0">12/06/2000</h6>
-                    </td>
-                    <td class="align-middle">
-                      <div class="d-flex gap-3">
-                        <a data-mdb-tooltip-init title="Done" class="done">
-                          <i class="fas fa-check fa-lg text-success"></i>
-                        </a>
-                        <a data-mdb-tooltip-init title="Remove" class="remove">
-                          <i class="fas fa-trash-alt fa-lg text-danger"></i>
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
+                  </tr>  -->
 
                 </tbody>
               </table>
@@ -128,8 +136,52 @@
     </div>
   </section>
 
+  <script>
+    $(document).ready(function() {
+      $('.done').click(function() {
+        var taskId = $(this).attr('data');
+        $.ajax({
+          url: '/done_task/', // URL to the Django view
+          type: 'POST',
+          data: {
+            'task_id': taskId,
+            'csrfmiddlewaretoken': '{{ csrf_token }}' // Include the CSRF token for security
+          },
+          dataType: 'json',
+          success: function(data) {
+            console.log(data.message); // Handle the success response
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+      });
+      $('.remove').click(function() {
+        var taskId = $(this).attr('data');
+        $.ajax({
+          url: '/delete_task/', // URL to the Django view
+          type: 'POST',
+          data: {
+            'task_id': taskId,
+            'csrfmiddlewaretoken': '{{ csrf_token }}' // Include the CSRF token for security
+          },
+          dataType: 'json',
+          success: function(data) {
+            console.log(data.message); // Handle the success response
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+          }
+        });
+      });
+    });
+  </script>
+
+
+  <script src="{% static 'jQuery.js''%}"></script>
   <script src="{% static 'Design_page/Task/task.js' %}"></script>
   <script src="{% static 'js/all.js'%}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
 </body>
 </html>
